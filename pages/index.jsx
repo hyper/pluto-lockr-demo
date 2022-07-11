@@ -13,8 +13,6 @@ function Index() {
     [],
   );
 
-  console.log(process.env.NEXT_PUBLIC_PLUTO_PUBLISHABLE_TEST_KEY);
-
   return (
     <PlutoContext.Provider value={value}>
       <CheckoutForm />
