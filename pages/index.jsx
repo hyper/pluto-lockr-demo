@@ -1,4 +1,5 @@
 import { PlutoContext, withEth, withSol } from '@plutohq/pluto-react';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 import CheckoutForm from '../components/CheckoutForm';
 
@@ -14,9 +15,12 @@ function Index() {
   );
 
   return (
-    <PlutoContext.Provider value={value}>
-      <CheckoutForm />
-    </PlutoContext.Provider>
+    <>
+      <NextSeo title="Pluto Crypto Checkout Quickstart" noindex />
+      <PlutoContext.Provider value={value}>
+        <CheckoutForm />
+      </PlutoContext.Provider>
+    </>
   );
 }
 

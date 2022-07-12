@@ -8,7 +8,6 @@ function Document() {
     <Html lang="en">
       <Head>
         <meta name="theme-color" content="#1b1b1b" />
-        <title>Pluto Crypto Checkout Quickstart</title>
       </Head>
       <body>
         <Main />

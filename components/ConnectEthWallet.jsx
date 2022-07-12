@@ -24,12 +24,12 @@ export default function ConnectEthWallet() {
             <div>
               {connectors.map((connector) => (
                 <button
-                    key={connector.id}
-                    type="button"
-                    onClick={() => connect(connector)}
-                  >
-                    {connector.name}
-                  </button>
+                  key={connector.id}
+                  type="button"
+                  onClick={() => connect(connector)}
+                >
+                  {connector.name}
+                </button>
               ))}
             </div>
           )}
