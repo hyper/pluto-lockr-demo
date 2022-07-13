@@ -29,10 +29,10 @@ export default function ConnectEthWallet() {
               value={account.address}
             />
           ) : (
-            <div className="gap-2 flex flex-wrap">
+            <div className="flex flex-col flex-wrap gap-2 sm:flex-row">
               {connectors.map((connector) => (
                 <button
-                  className="rounded border border-gray-200 bg-gray-50 py-1 px-2 w-full transition hover:bg-gray-300"
+                  className="flex-1 rounded border border-gray-200 bg-gray-50 py-1 px-2 transition hover:bg-gray-200"
                   key={connector.id}
                   type="button"
                   onClick={() => connect(connector)}

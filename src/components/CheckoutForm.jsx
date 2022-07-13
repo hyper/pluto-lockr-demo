@@ -34,21 +34,23 @@ export default function CheckoutForm() {
       <h1 className="text-xl font-semibold">Sample Checkout</h1>
       <div className="flex w-full flex-col space-y-4">
         <ConnectEthWallet />
-        <div className="flex flex-col space-y-1">
-          <label htmlFor="name">Name</label>
-          <input
-            className="rounded border border-gray-200 bg-gray-50 px-2 py-1 outline-none transition hover:ring focus:border-blue-600 focus:ring"
-            type="text"
-            name="name"
-          />
-        </div>
-        <div className="flex flex-col space-y-1">
-          <label htmlFor="email">Email</label>
-          <input
-            className="rounded border border-gray-200 bg-gray-50 px-2 py-1 outline-none transition hover:ring focus:border-blue-600 focus:ring"
-            type="email"
-            name="email"
-          />
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <div className="flex w-full flex-col space-y-1 sm:w-1/3">
+            <label htmlFor="name">Name</label>
+            <input
+              className="rounded border border-gray-200 bg-gray-50 px-2 py-1 outline-none transition hover:ring focus:border-blue-600 focus:ring"
+              type="text"
+              name="name"
+            />
+          </div>
+          <div className="flex w-full flex-col space-y-1 sm:w-2/3">
+            <label htmlFor="email">Email</label>
+            <input
+              className="rounded border border-gray-200 bg-gray-50 px-2 py-1 outline-none transition hover:ring focus:border-blue-600 focus:ring"
+              type="email"
+              name="email"
+            />
+          </div>
         </div>
       </div>
       <button
