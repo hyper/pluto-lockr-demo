@@ -17,7 +17,7 @@ async function handler(req, res) {
         customer: customer.id,
       });
 
-      return res.send(paymentIntent.id);
+      return res.send(paymentIntent);
     }
 
     return res.status(400).json({ message: 'Invalid request' });

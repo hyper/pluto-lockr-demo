@@ -19,7 +19,7 @@ export default function CheckoutForm() {
       });
 
       await payPaymentIntent(paymentIntent.id)
-        .then((data) => console.log('🎉 ETH payment intents succeeded:', data))
+        .then((data) => console.log('🎉 ETH payment intent succeeded:', data))
         .catch(console.error);
     },
     [payPaymentIntent],
@@ -41,6 +41,7 @@ export default function CheckoutForm() {
               className="rounded border border-gray-200 bg-gray-50 px-2 py-1 outline-none transition hover:ring focus:border-blue-600 focus:ring"
               type="text"
               name="name"
+              placeholder="Erlich Bachman"
             />
           </div>
           <div className="flex w-full flex-col space-y-1 sm:w-2/3">
@@ -49,6 +50,7 @@ export default function CheckoutForm() {
               className="rounded border border-gray-200 bg-gray-50 px-2 py-1 outline-none transition hover:ring focus:border-blue-600 focus:ring"
               type="email"
               name="email"
+              placeholder="erlich@aviato.com"
             />
           </div>
         </div>
@@ -57,7 +59,7 @@ export default function CheckoutForm() {
         className="w-full rounded bg-purple-500 py-1 px-2 text-white shadow transition hover:bg-purple-600"
         type="submit"
       >
-        {loading ? 'Processing...' : 'Pay now'}
+        {loading ? 'Processing...' : 'Pay 0.01 ETH'}
       </button>
       {transaction && (
         <div className="text-xs">{`Your transaction hash: ${transaction}`}</div>
