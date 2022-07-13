@@ -15,12 +15,10 @@ function Index() {
   );
 
   return (
-    <>
+    <PlutoContext.Provider value={value}>
       <NextSeo title="Pluto Crypto Checkout Quickstart" noindex />
-      <PlutoContext.Provider value={value}>
-        <CheckoutForm />
-      </PlutoContext.Provider>
-    </>
+      <CheckoutForm />
+    </PlutoContext.Provider>
   );
 }
 

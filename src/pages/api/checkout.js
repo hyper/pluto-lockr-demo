@@ -1,8 +1,6 @@
-import { Pluto } from '@plutohq/pluto-node';
+import pluto from '../../lib/pluto';
 
-const pluto = new Pluto(process.env.PLUTO_SECRET_TEST_KEY, { serverUrl: 'https://api.prism.rest/v1' });
-
-export default async function handler(req, res) {
+async function handler(req, res) {
   try {
     if (req.method === 'POST') {
       if (!req.body.name || !req.body.email) return res.status(400);
@@ -27,3 +25,5 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: err.message });
   }
 }
+
+export default handler;

@@ -11,27 +11,38 @@ module.exports = {
     es2020: true,
     node: true,
   },
-  plugins: [
-    'react',
-  ],
-  ignorePatterns: [
-    '**/*.min.js',
-  ],
-  overrides: [{
-    files: ['**/*.{js,jsx}'],
-    rules: {
-      'react/prop-types': 'off',
+  plugins: ['react'],
+  ignorePatterns: ['**/*.min.js'],
+  overrides: [
+    {
+      files: ['**/*.{js,jsx}'],
+      rules: {
+        'react/prop-types': 'off',
+      },
     },
-  }],
+  ],
   extends: ['airbnb', 'airbnb/hooks', 'plugin:@next/next/recommended'],
   rules: {
-    'react/jsx-indent': ['error', 2, { checkAttributes: true, indentLogicalExpressions: true }],
-    'object-curly-newline': ['error', { minProperties: 5, multiline: true, consistent: true }],
+    'react/jsx-indent': [
+      'error',
+      2,
+      { checkAttributes: true, indentLogicalExpressions: true },
+    ],
+    'object-curly-newline': [
+      'error',
+      { minProperties: 5, multiline: true, consistent: true },
+    ],
     'import/order': [
       'error',
       {
         alphabetize: { order: 'asc' },
-        groups: [['builtin', 'external'], 'internal', 'parent', 'sibling', 'index'],
+        groups: [
+          ['builtin', 'external'],
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
         'newlines-between': 'never',
       },
     ],
