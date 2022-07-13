@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@plutohq/pluto-node": "^1.4.3",
-    "@plutohq/pluto-react": "^1.1.1",
+    "@plutohq/pluto-react": "^1.1.4",
     "next": "12.2.2",
     "next-compose-plugins": "^2.2.1",
     "next-seo": "^5.4.0",
