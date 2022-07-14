@@ -4,13 +4,13 @@ import React from 'react';
 export default function ConnectEthWallet() {
   return (
     <ConnectWallet>
-      {({ account, connectors, connect, disconnect }) => (
+      {({ address, connectors, connect, disconnect }) => (
         <div className="flex flex-col space-y-1">
           <div className="flex items-end justify-between space-x-8">
             <label htmlFor="address">
-              {account?.address ? 'Wallet address' : 'Connect a wallet'}
+              {address ? 'Wallet address' : 'Connect a wallet'}
             </label>
-            {account?.address && (
+            {address && (
               <button
                 className="rounded text-sm text-red-500 transition hover:underline"
                 type="button"
@@ -20,13 +20,13 @@ export default function ConnectEthWallet() {
               </button>
             )}
           </div>
-          {account?.address ? (
+          {address ? (
             <input
               readOnly
               className="rounded border border-gray-200 bg-gray-50 px-2 py-1 outline-none transition hover:ring focus:border-blue-600 focus:ring"
               type="text"
               name="address"
-              value={account.address}
+              value={address}
             />
           ) : (
             <div className="flex flex-col flex-wrap gap-2 sm:flex-row">
@@ -35,7 +35,7 @@ export default function ConnectEthWallet() {
                   className="flex-1 rounded border border-gray-200 bg-gray-50 py-1 px-2 transition hover:bg-gray-200"
                   key={connector.id}
                   type="button"
-                  onClick={() => connect(connector)}
+                  onClick={() => connect({ connector })}
                 >
                   {connector.name}
                 </button>

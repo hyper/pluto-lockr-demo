@@ -16,7 +16,7 @@ export default function CheckoutForm() {
           name: event.target.name.value,
           email: event.target.email.value,
         }),
-      });
+      }).then((res) => res.body);
 
       await payPaymentIntent(paymentIntent.id)
         .then((data) => console.log('🎉 ETH payment intent succeeded:', data))
