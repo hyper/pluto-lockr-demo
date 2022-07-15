@@ -1,13 +1,16 @@
-import { usePayPaymentIntent } from '@plutohq/pluto-react';
+import { usePluto } from '@plutohq/pluto-react';
 import React from 'react';
 import ConnectEthWallet from './ConnectEthWallet';
 
 export default function CheckoutForm() {
-  const { payPaymentIntent, loading, transaction } = usePayPaymentIntent();
+  const pluto = usePluto();
+  const [loading, setLoading] = React.useState(false);
+  const [transaction, setTransaction] = React.useState(null);
 
   const handleSubmit = React.useCallback(
     async (event) => {
       event.preventDefault();
+      setLoading(true);
 
       const paymentIntent = await fetch('/api/checkout', {
         method: 'POST',
@@ -16,13 +19,19 @@ export default function CheckoutForm() {
           name: event.target.name.value,
           email: event.target.email.value,
         }),
-      }).then((res) => res.body);
+      }).then(async (res) => res.json())
+        .catch(console.err);
 
-      await payPaymentIntent(paymentIntent.id)
-        .then((data) => console.log('🎉 ETH payment intent succeeded:', data))
+      await pluto.confirmPayment(paymentIntent.id)
+        .then(async (data) => {
+          setTransaction(data.hash);
+          const completedPayment = await pluto.pollPayment(paymentIntent.id);
+
+          if (completedPayment.status === 'succeeded') setLoading(false);
+        })
         .catch(console.error);
     },
-    [payPaymentIntent],
+    [pluto],
   );
 
   return (
@@ -62,7 +71,17 @@ export default function CheckoutForm() {
         {loading ? 'Processing...' : 'Pay 0.01 ETH'}
       </button>
       {transaction && (
-        <div className="text-xs">{`Your transaction hash: ${transaction}`}</div>
+        <div className="text-xs">
+          Your transaction hash:&nbsp;
+          <a
+            target="_blank"
+            href={`https://rinkeby.etherscan.io/tx/${transaction}`}
+            className="text-purple-500 hover:text-purple-700"
+            rel="noreferrer"
+          >
+            {transaction}
+          </a>
+        </div>
       )}
     </form>
   );

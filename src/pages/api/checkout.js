@@ -22,6 +22,7 @@ async function handler(req, res) {
 
     return res.status(400).json({ message: 'Invalid request' });
   } catch (err) {
+    console.log(err);
     return res.status(500).json({ error: err.message });
   }
 }
