@@ -1,23 +1,33 @@
+const { buffer } = require('micro');
+const { Webhook } = require('svix');
+
+const webhook = new Webhook(process.env.PLUTO_WEBHOOK_SECRET);
+
 export default async function handler(req, res) {
   try {
-    const event = req.body;
-
     if (req.method === 'POST') {
-      console.log('Pluto webhook event', event.data.id);
+      const body = (await buffer(req))?.toString();
+      const event = webhook.verify(body, req.headers);
 
       if (event.type === 'payment_intent.succeeded') {
-        const paymentIntent = event.data.id;
-        console.log('Payment succeeded', paymentIntent.id);
+        const payment = event.data;
+        console.log(`Payment ${payment.id} for ${payment.amount} ${payment.currency.toUpperCase()} succeeded`);
       }
 
       if (event.type === 'payment_intent.failed') {
-        const paymentIntent = event.data.id;
-        console.log('Payment failed', paymentIntent.id);
+        const payment = event.data;
+        console.log(`Payment ${payment.id} for ${payment.amount} ${payment.currency.toUpperCase()} failed`);
       }
     }
 
-    return res.status(400).json({ message: 'Invalid request' });
+    return res.send(202);
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
 }
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
