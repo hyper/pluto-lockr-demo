@@ -6,13 +6,13 @@ export default function ConnectEthWallet() {
     <ConnectWallet>
       {({ address, connectors, connect, disconnect }) => (
         <div className="flex flex-col space-y-1">
-          <div className="flex items-end justify-between space-x-8">
+          <div className="flex items-end justify-between space-x-8 text-white text-sm">
             <label htmlFor="address">
               {address ? 'Wallet address' : 'Connect a wallet'}
             </label>
             {address && (
               <button
-                className="rounded text-sm text-red-500 transition hover:underline"
+                className="rounded text-sm transition text-amber-600 hover:text-amber-700"
                 type="button"
                 onClick={() => disconnect()}
               >

@@ -7,7 +7,7 @@ function Document() {
       <Head>
         <meta name="theme-color" content="#1b1b1b" />
       </Head>
-      <body className="flex min-h-screen items-center justify-center">
+      <body className="flex min-h-screen items-center justify-center bg-zinc-900">
         <Main />
         <NextScript />
       </body>

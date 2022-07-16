@@ -9,11 +9,11 @@ export default function PaymentModal({ open, setOpen, transaction }) {
         <Dialog.Panel className="flex flex-col bg-gray-100 p-5 space-y-3 rounded">
           <Dialog.Title className="font-bold text-xl">Payment succeeded</Dialog.Title>
           <Dialog.Description>
-            Your transaction on the Rinkeby testnet succeeded. View transaction details&nbsp;
+            Your deposit has succeeded. View transaction details&nbsp;
             <a
               target="_blank"
               href={`https://rinkeby.etherscan.io/tx/${transaction}`}
-              className="text-purple-500 hover:text-purple-700 outline-none"
+              className="text-amber-600 hover:text-amber-700 outline-none"
               rel="noreferrer"
             >
               here
@@ -22,7 +22,7 @@ export default function PaymentModal({ open, setOpen, transaction }) {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            className="text-white bg-purple-500 hover:bg-purple-600 rounded py-1 px-2 self-end !mt-5"
+            className="text-white bg-amber-600 hover:bg-amber-700 rounded py-1 px-2 self-end !mt-5"
           >Restart demo
           </button>
         </Dialog.Panel>

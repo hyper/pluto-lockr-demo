@@ -4,6 +4,7 @@ async function handler(req, res) {
   try {
     if (req.method === 'POST') {
       if (!req.body.name || !req.body.email) return res.status(400).json({ error: 'Missing name or email' });
+      if (!req.body.amount || req.body.amount < 0) return res.status(400).json({ error: 'Invalid amount' });
 
       const customer = await pluto.customers.create({
         name: req.body.name,
@@ -13,7 +14,7 @@ async function handler(req, res) {
       const paymentIntent = await pluto.paymentIntents.create({
         chain: 'eth',
         currency: 'eth',
-        amount: 0.01,
+        amount: req.body.amount,
         customer: customer.id,
       });
 
