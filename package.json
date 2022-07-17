@@ -1,5 +1,5 @@
 {
-  "name": "pluto-quickstart",
+  "name": "pluto-lockr-demo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
+    "@heroicons/react": "^1.0.6",
     "@plutohq/pluto-js": "^1.6.4",
     "@plutohq/pluto-node": "^1.5.0",
     "@plutohq/pluto-react": "^1.2.2",

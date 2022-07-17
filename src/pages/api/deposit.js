@@ -3,7 +3,6 @@ import pluto from '../../lib/pluto';
 async function handler(req, res) {
   try {
     if (req.method === 'POST') {
-      if (!req.body.name || !req.body.email) return res.status(400).json({ error: 'Missing name or email' });
       if (!req.body.amount || req.body.amount < 0) return res.status(400).json({ error: 'Invalid amount' });
 
       const customer = await pluto.customers.create({
