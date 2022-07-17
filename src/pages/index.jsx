@@ -29,7 +29,7 @@ function Index() {
           <div className="bg-[#453C37] h-[56px] lg:h-[36px] mt-[91px] fixed w-full float-index">
             <div className="flex justify-center flex-col lg:flex-row items-center my-auto py-auto h-full">
               <span className="text-sm font-light text-neutral-50">
-                Please make sure you're connected to the Rinkeby Test Network
+                Please make sure you're connected to the <span className="font-semibold">Rinkeby</span> testnet
               </span>
             </div>
           </div>
