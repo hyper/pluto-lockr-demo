@@ -26,11 +26,9 @@ function Index() {
               objectFit="contain"
             />
           </div>
-          <div className="bg-[#453C37] h-[56px] lg:h-[36px] mt-[91px] fixed w-full float-index">
-            <div className="flex justify-center flex-col lg:flex-row items-center my-auto py-auto h-full">
-              <span className="text-sm font-light text-neutral-50">
-                Please make sure you're connected to the <span className="font-semibold">Rinkeby</span> testnet
-              </span>
+          <div className="bg-[#453C37] fixed w-full py-2 px-5 mt-[91px]">
+            <div className="text-sm text-center font-light text-neutral-50">
+              Please make sure you're connected to the <span className="font-semibold">Rinkeby</span> testnet
             </div>
           </div>
           <div className="w-[100%] min-h-[100vh] bg-neutral-900 flex mx-auto">
